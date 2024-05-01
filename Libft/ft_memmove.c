@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhenriq2 <jhenriq2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 15:54:44 by jhenriq2          #+#    #+#             */
-/*   Updated: 2024/04/24 18:41:32 by jhenriq2         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:11:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,3 @@ void	*ft_memmove(void *str1, const void *str2, size_t n)
 	}
 	return (str1);
 }
-/*
-Objetivo: a função copia a len de bytes da str2 para a str1
-*/
