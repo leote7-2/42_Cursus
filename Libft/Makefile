@@ -6,7 +6,7 @@
 #    By: jhenriq2 <jhenriq2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 16:59:53 by jhenriq2          #+#    #+#              #
-#    Updated: 2024/04/24 18:38:43 by jhenriq2         ###   ########.fr        #
+#    Updated: 2024/05/01 17:56:11 by jhenriq2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,14 +58,17 @@ BONUS = ft_lstnew.c \
 		ft_lstiter.c \
 		ft_lstmap.c
 
-OBJS = $(SRCS:.c=.o) 
+OBJS = $(SRCS:.c=.o)
 RM = rm -f $(OBJS)
 BONUS_OBJS = $(BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -c $(SRCS) $(BONUS)
 	ar rcs $(NAME) $(OBJS)
+
+%.o: %.c
+	$(CC) $(CFALGS) -c $< -o $@
+
 clean:
 	$(RM) $(BONUS_OBJS)
 fclean: clean
@@ -73,7 +76,7 @@ fclean: clean
 
 re: fclean all
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+bonus: $(BONUS_OBJS)
+	@make OBJS="$(BONUS_OBJS)" all
 
 .PHONY: all bonus clean fclean re
