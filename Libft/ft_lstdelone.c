@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhenriq2 <jhenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:06:10 by jhenriq2          #+#    #+#             */
-/*   Updated: 2024/04/30 16:01:45 by marvin           ###   ########.fr       */
+/*   Updated: 2024/04/25 18:00:29 by jhenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/**@brief Deletes one node
+/**@brief Deletes onde node
  * @param *lst Pointer to the first element of the list
  * @param *del Pointer of the function to delete
  * @return Nothing

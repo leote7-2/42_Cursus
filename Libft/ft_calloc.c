@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhenriq2 <jhenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:38:34 by jhenriq2          #+#    #+#             */
-/*   Updated: 2024/04/27 19:37:07 by marvin           ###   ########.fr       */
+/*   Updated: 2024/04/25 18:50:17 by jhenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,32 @@ void	*ft_calloc(size_t num, size_t size)
 	ft_bzero(ptr, (num * size));
 	return (ptr);
 }
-/*
-int	main()
+
+/*int	main()
 {
-	int *array = (int *)ft_calloc(5, sizeof(int));
+	size_t	num_elements = 5;
+	size_t	element_size = sizeof(int);
+	size_t	i = 0;
+	size_t	a = 0;
+	int	*array = (int *)ft_calloc(num_elements, element_size);
 
 	if (array == NULL)
 	{
-		printf("Erro: Falha ao alocar memória.\n");
+		printf("Falha ao alocar memória\n");
 		return 1;
 	}
+	while (a < num_elements)
+	{
+		array[a] = a * 2;
+		a++;
+	}
+	printf("Valores do array:\n");
+	while (i < num_elements)
+	{	
+		printf("%d ", array[i]);
+		i++;
+	}
+	printf("\n");
 	free(array);
-
-    return (0);
-}
-*/
+	return (0);
+}*/

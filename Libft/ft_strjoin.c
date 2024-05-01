@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhenriq2 <jhenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 16:22:14 by jhenriq2          #+#    #+#             */
-/*   Updated: 2024/04/30 19:23:19 by marvin           ###   ########.fr       */
+/*   Updated: 2024/04/24 15:47:02 by jhenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
     if (result == NULL)
     {
-        printf("Erro: erro\n");
+        printf("Erro: RAFODINHA.\n");
         return 1;
     }
     printf("Strings concatenadas: %s\n", result);
