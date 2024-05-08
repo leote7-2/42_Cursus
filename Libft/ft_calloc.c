@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhenriq2 <jhenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:38:34 by jhenriq2          #+#    #+#             */
-/*   Updated: 2024/04/27 19:37:07 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/01 15:19:14 by jhenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ void	*ft_calloc(size_t num, size_t size)
 /*
 int	main()
 {
-	int *array = (int *)ft_calloc(5, sizeof(int));
+	int	*array = (int *)ft_calloc(5, sizeof(int));
 
 	if (array == NULL)
 	{
 		printf("Erro: Falha ao alocar memória.\n");
-		return 1;
+		return (1);
 	}
 	free(array);
 
-    return (0);
+	return (0);
 }
 */

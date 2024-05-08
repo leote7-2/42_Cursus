@@ -6,15 +6,12 @@
 /*   By: jhenriq2 <jhenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 16:52:46 by jhenriq2          #+#    #+#             */
-/*   Updated: 2024/04/25 16:14:18 by jhenriq2         ###   ########.fr       */
+/*   Updated: 2024/05/08 11:27:35 by jhenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/**@brief Integer to ascii
- * @param param n Integer 
- * @return The number in ascii
-*/
+
 static unsigned int	ft_count_digits(int n)
 {
 	unsigned int	c;
@@ -31,6 +28,10 @@ static unsigned int	ft_count_digits(int n)
 	}
 	return (c);
 }
+/**@brief Integer to ascii
+ * @param param n Integer 
+ * @return The number in ascii
+*/
 
 char	*ft_itoa(int n)
 {
@@ -66,7 +67,10 @@ char	*ft_itoa(int n)
 	int num_cases = sizeof(test_cases) / sizeof(test_cases[0]);
 
 	printf("Testing ft_itoa function:\n");
-	for (int i = 0; i < num_cases; i++)
+	int	i;
+	
+	i = 0;
+	while (i < num_cases)
 	{
 		int num = test_cases[i];
 		char *result = ft_itoa(num);
@@ -77,6 +81,7 @@ char	*ft_itoa(int n)
 		}
 		printf("Number: %d, Result: %s\n", num, result);
 		free(result);
+		i++;
 	}
 
 	return (0);

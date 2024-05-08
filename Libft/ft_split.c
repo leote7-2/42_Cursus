@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhenriq2 <jhenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 16:50:12 by jhenriq2          #+#    #+#             */
-/*   Updated: 2024/04/30 15:16:59 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/08 11:22:52 by jhenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static size_t	ft_count(const char *s, char c)
  * @param c The delimiter Character
  * @return The array of new strings resulting from the split
 */
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	len;
@@ -67,8 +68,8 @@ char	**ft_split(char const *s, char c)
 /*
 int main(void)
 {
-	char const *str = "Hello world this is a test";
-	char **result = ft_split(str, ' ');
+	char const	*str = "Hello world this is a test";
+	char	**result = ft_split(str, ' ');
 
 	if (result)
 	{
