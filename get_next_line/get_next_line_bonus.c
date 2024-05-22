@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 01:13:50 by marvin            #+#    #+#             */
-/*   Updated: 2024/05/22 01:13:50 by marvin           ###   ########.fr       */
+/*   Created: 2024/05/20 14:39:50 by marvin            #+#    #+#             */
+/*   Updated: 2024/05/20 14:39:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 void	surplus(t_list **lst)
 {
 	t_list	*last_node;
 	t_list	*clean_node;
-	int	i;
-	int	j;
+	int	    i;
+	int	    j;
 	char	*buffer;
 
 	buffer = malloc(BUFFER_SIZE + 1);
@@ -52,7 +52,7 @@ char	*get_line(t_list *lst)
 	return (next_str);
 }
 
-void	add(t_list **lst, char *buffer)
+void	add(t_list **lst, char *buffer, int fd)
 {
 	t_list	*new_node;
 	t_list	*last_node;
@@ -62,7 +62,7 @@ void	add(t_list **lst, char *buffer)
 	if (new_node == NULL);
 		return ;
 	if (last_node == NULL)
-		*lst = new_node;
+		lst[fd] = new_node;
 	else
 		last_node->next = new_node;
 	new_node->str_buffer = buffer;
@@ -74,7 +74,7 @@ void	create_list(t_list **lst, int fd)
 	int			char_read;
 	char	*buffer;
 	
-	while(!find_newline(*lst))
+	while(!find_newline(lst[fd]))
 	{
 		buffer = malloc(BUFFER_SIZE + 1);
 		if (NULL == buffer)
@@ -86,21 +86,21 @@ void	create_list(t_list **lst, int fd)
 			return ;
 		}
 		buffer[char_read] = '\0';
-		add(lst, buffer);
+		add(lst, buffer, fd);
 	}
 }
 
 char	*get_next_line(int fd)
 {
-	static t_list	*lst = NULL;
+	static t_list	*lst[4096];
 	char	*next_line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 ||read(fd, &next_line, 0) < 0)
+	if (fd < 0 || fd > 4096 || BUFFER_SIZE <= 0 ||read(fd, &next_line, 0) < 0)
 		return (NULL);
 	create_list(&lst, fd);
-	if (lst == NULL)
+	if (lst[fd] == NULL)
 		return (NULL);
-	next_line = get_line(lst);
-	surplus(&lst);
+	next_line = get_line(lst[fd]);
+	surplus(&lst[fd]);
 	return (next_line);
 }
