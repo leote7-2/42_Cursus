@@ -5,113 +5,76 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 14:52:01 by marvin            #+#    #+#             */
-/*   Updated: 2024/05/20 14:52:01 by marvin           ###   ########.fr       */
+/*   Created: 2024/06/19 14:52:51 by marvin            #+#    #+#             */
+/*   Updated: 2024/06/19 14:52:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	newline(t_list *lst)
+size_t	ft_len(const char *s)
 {
-	int	i;
+	size_t	i;
 
-	if (lst == NULL)
+	if (!s || !*s)
 		return (0);
-	while (lst)
-	{
-		i = 0;
-		while (lst->str_buffer[i] && i < BUFFER_SIZE)
-		{
-			if (lst->str_buffer[i] == '\n')
-				return (1);
-			++i;
-		}
-		lst = lst->next;
-	}
-	return (0);
+	i = 0;
+	while (s[i] && s[i] != '\n')
+		i++;
+	return (i + (s[i] == '\n'));
 }
 
-t_list	*find_last_node(t_list *lst)
+char	*ft_strjoin(char *str, char *buffer)
 {
-	if (lst == NULL)
-		return(NULL);
-	while (lst->next)
-		lst =lst->next;
-	return (lst);
-}
+	int		i;
+	int		j;
+	char	*new;
 
-void	copy_str(t_list *lst, char *str)
-{
-	int	i;
-	int	j;
-	
-	if (lst == NULL)
-		return ;
+	i = 0;
 	j = 0;
-	while (lst)
-	{
-		i = 0;
-		while (lst->str_buffer[i])
-		{
-			if (lst->str_buffer[i] == '\n')
-			{
-				str[j++] = '\n';
-				str[j] = '\0';
-				return ;			
-			}
-			str[j++] = lst->str_buffer[i++];
-		}
-		lst = lst->next;
-	}
-	str[j] = '\0';
-}
-
-int	len_newline(t_list *lst)
-{
-	int	i;
-	int	n;
-	
-	if (lst == NULL)
+	new = (char *)malloc(ft_len(str) + ft_len(buffer) + 1);
+	if (!new)
 		return (0);
-	n = 0;
-	while (lst)
+	while (str && str[i])
 	{
-		i = 0;
-		while (lst->str_buffer[i])
-		{
-			if (lst->str_buffer[i] == '\n')
-			{
-				++n;
-				return (n);
-			}
-			++i;
-			++n;
-		}
-		lst = lst->next;
+		new[i] = str[i];
+		i++;
 	}
-	return (n);
+	while (buffer[j])
+	{
+		new[i + j] = buffer[j];
+		if (buffer[j++] == '\n')
+			break ;
+	}
+	new[i + j] = '\0';
+	free (str);
+	return (new);
 }
 
-void	free_list(t_list **lst, t_list *clean_node, char *buffer)
+int	ft_newline(char *buffer, int i)
 {
-	t_list	*tmp;
+	char	*b;
+	char	*t;
 
-	if (*lst == NULL)
-		return ;
-	while (*lst)
+	b = buffer;
+	t = buffer;
+	while (*b)
 	{
-		tmp = (*lst)->next;
-		free((*lst)->str_buffer);
-		free(*lst);
-		*lst = tmp;
+		if (*b == '\n')
+		{
+			i = 1;
+			*b++ = '\0';
+			break ;
+		}
+		*b++ = '\0';
 	}
-	*lst = NULL;
-	if (clean_node->str_buffer[0])
-		*lst = clean_node;
-	else
+	if (i == 1)
 	{
-		free(buffer);
-		free(clean_node);
+		while (*b)
+		{
+			*t++ = *b;
+			*b++ = '\0';
+		}	
 	}
+	return (i);
 }
