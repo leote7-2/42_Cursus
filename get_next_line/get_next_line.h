@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/19 14:52:45 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/19 14:52:45 by marvin           ###   ########.fr       */
+/*   Created: 2024/05/20 14:51:54 by marvin            #+#    #+#             */
+/*   Updated: 2024/05/20 14:51:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 # define BUFFER_SIZE 42
 # endif
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
 # include <fcntl.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
 
 char	*get_next_line(int fd);
 size_t	ft_len(const char *s);
 char	*ft_strjoin(char *str, char *buffer);
-int		newline(char *buffer, int i);
+int		ft_newline(char *buffer, int i);
 
 #endif

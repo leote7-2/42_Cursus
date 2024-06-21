@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/19 14:52:48 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/19 14:52:48 by marvin           ###   ########.fr       */
+/*   Created: 2024/05/22 01:13:50 by marvin            #+#    #+#             */
+/*   Updated: 2024/05/22 01:13:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*get_next_line(int fd)
 {
-	static char		buffer[BUFFER_SIZE + 1];
-	char			*str;
+	static char	buffer[BUFFER_SIZE + 1];
+	char		*str;
 
 	str = 0;
 	if (fd < 0 || fd > FOPEN_MAX || BUFFER_SIZE < 1)

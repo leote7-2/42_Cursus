@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/19 14:52:51 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/19 14:52:51 by marvin           ###   ########.fr       */
+/*   Created: 2024/05/20 14:52:01 by marvin            #+#    #+#             */
+/*   Updated: 2024/05/20 14:52:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_strjoin(char *str, char *buffer)
 	}
 	while (buffer[j])
 	{
-		new[i + j] = buffer[j];
+		new[i + j] = buffer [j];
 		if (buffer[j++] == '\n')
 			break ;
 	}
@@ -74,7 +74,7 @@ int	ft_newline(char *buffer, int i)
 		{
 			*t++ = *b;
 			*b++ = '\0';
-		}	
+		}
 	}
 	return (i);
 }
